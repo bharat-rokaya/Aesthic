@@ -27,7 +27,7 @@
         <a href="#contact" class="hover:text-blue-600 transition-all duration-300 ease  hover:underline hover:-translate-y-2">Contact</a>   
       </div>
 
-      <button class="bg-blue-500 text-white px-6 py-2 ml-6 cursor-pointer rounded-xl transition-all duration-200 ease hover:bg-blue-600 hover:scale-102 hover:-translate-y-1">Join Us<i class="fas fa-user-plus ml-2" ></i></button>
+      <button id="join-us" class="bg-blue-500 text-white px-6 py-2 ml-6 cursor-pointer rounded-xl transition-all duration-200 ease hover:bg-blue-600 hover:scale-102 hover:-translate-y-1">Join Us<i class="fas fa-user-plus ml-2" ></i></button>
     </div>
   </nav>
 
@@ -54,6 +54,7 @@
   </section>
 
 
+  <!-- ABOUT SECTION -->
   <section id="about" class="w-full mb-32">
     <div class="mb-8">
       <h1 class="text-blue-500 font-smibold text-3xl text-center mb-6">Why Choose Us?</h1>
@@ -61,25 +62,25 @@
     </div>
 
     <div class="w-full text-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="w-full h-auto bg-blue-200 px-5 py-4 rounded-md flex-column items-center">
+      <div class="w-full h-auto bg-blue-200 px-5 py-4 rounded-md flex-column items-center transition-all duration-200 ease hover:shadow-lg hover:-translate-y-2">
         <i class="fas fa-truck  text-3xl text-blue-500"></i>
         <h2 class="font-semibold text-blue-500 text-2xl mb-4">Free Delivery</h2>
         <p class="text-justify hyphens-auto">No extra cost, Just cop it - we ship it fast and free  ensuring your shopping experience is convenient and cost-effective.</p>
       </div>
 
-      <div class="w-full h-auto bg-blue-200 px-5 py-4 rounded-md flex-column items-center">
+      <div class="w-full h-auto bg-blue-200 px-5 py-4 rounded-md flex-column items-center transition-all duration-200 ease hover:shadow-lg hover:-translate-y-2">
         <i class="fas fa-rotate text-3xl text-blue-500"></i>
         <h2 class="font-semibold text-blue-500 text-2xl mb-4">7-Days Returns</h2>
         <p class="text-justify hyphens-auto">Not your vibe? Send it back within 7 days, No stress. Hassle-free exchange and returns within 7 days of purchase.</p>
       </div>
 
-      <div class="w-full h-auto bg-blue-200 px-5 py-4 rounded-md flex-column items-center">
+      <div class="w-full h-auto bg-blue-200 px-5 py-4 rounded-md flex-column items-center transition-all duration-200 ease hover:shadow-lg hover:-translate-y-2">
         <i class="fas fa-headset text-3xl text-blue-500"></i> 
         <h2 class="font-semibold text-blue-500 text-2xl mb-4">24/7 Support</h2>
         <p class="text-justify hyphens-auto">Drop a message anytime. We've got your back 24/7. Always available for your assistance and inquiries.</p>
       </div>
 
-      <div class="w-full h-auto bg-blue-200 px-4 py-4 rounded-md flex-column items-center">
+      <div class="w-full h-auto bg-blue-200 px-4 py-4 rounded-md flex-column items-center transition-all duration-200 ease hover:shadow-lg hover:-translate-y-2">
         <i class="fas fa-lock text-3xl text-blue-500"></i>
         <h2 class="font-semibold text-blue-500 text-2xl mb-4">Secure Payment</h2>
         <p class="text-justify hyphens-auto">Pay safe, Shop confident, your info stays protected.Safe payment gateways for online and card transactions.</p>
@@ -88,10 +89,11 @@
   </section>
 
 
+  <!-- PRODUCTS SECTION -->
   <section id="products">
     <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
-    <div class="border-1 bg-blue-200 w-[300px] h-auto p-3 rounded-xl flex-column items-center justify-center">
+    <div class="border-1 bg-blue-200 w-[300px] h-auto rounded-xl flex-column items-center justify-center">
         <img src="images/tshirt1.jpg" class="w-auto h-auto rounded-xl mb-2">
         <p class="text-lg font-semibold mb-1">Harajuku T-Shirt</p>
         <p class="text-md w-auto text-sm text-justify font-light mb-1">A stylish authentic t-shirt from Harajuku. Get it now at 30% off!. Don't miss the chance come and buy now.</p>
@@ -119,7 +121,12 @@
   
 
   <script>
+    const joinUsButton = document.getElementById('join-us');
     const buyButtons = document.querySelectorAll('#buy');
+
+    joinUsButton.addEventListener('click', () => {
+      window.location.href = 'login.html';
+    });
 
     buyButtons.forEach(button => {
       button.addEventListener('click', () => {
