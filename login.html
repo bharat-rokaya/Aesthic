@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body class="bg-blue-100 h-screen flex items-center justify-center">
     <div class="bg-white w-[350px] h-auto p-8 flex-column items-center justify-center rounded-2xl shadow-lg">
@@ -16,9 +19,10 @@
 
         <label for="password" class="text-gray-700">Password</label>
         <input type="password" id="password" placeholder="Enter your password" class="w-full outline-1 outline-gray-600 focus:outline-blue-600 mt-1 px-2 py-[6px] rounded-md" required />
-        <p id="password-error" class="text-red-500 text-sm mt-1"></p>
+        <i class="fa-solid fa-eye text-gray-600 cursor-pointer -translate-y-[30px] translate-x-65" id="togglePassword"></i>
+        <p id="password-error" class="text-red-500 text-sm mt-1 -translate-y-[6px]"></p>
 
-        <button type="submit" id="login" class="w-full bg-blue-500 text-white mt-8 py-[6px] px-4 cursor:pointer transition-scale duration-200 ease rounded-md hover:scale-102 hover:bg-blue-600">Login</button>
+        <button type="submit" id="login" class="w-full bg-blue-500 text-white mt-1 py-[6px] px-4 cursor:pointer transition-scale duration-200 ease rounded-md hover:scale-102 hover:bg-blue-600">Login</button>
       </div>
       <p class="text-sm text-center mt-4">Don't have an account? <a href="register.html" target="_blank" class="text-blue-600 hover:underline">Create one here.</a></p>
     </div>

@@ -3,6 +3,14 @@ const passwordInput = document.getElementById("password");
 const emailError = document.getElementById("email-error");
 const passwordError = document.getElementById("password-error");
 const loginButton = document.getElementById("login");
+const togglePassword = document.getElementById("togglePassword");
+
+togglePassword.addEventListener("click", () => {
+  const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+  passwordInput.setAttribute("type", type);
+  togglePassword.classList.toggle("fa-eye");
+  togglePassword.classList.toggle("fa-eye-slash");
+});
 
 loginButton.addEventListener("click", (e) => {
   e.preventDefault();
