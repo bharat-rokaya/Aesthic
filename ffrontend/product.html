@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product page</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-blue-100 w-fit h-screen mx-6 my-4 sm:mx-12">
+    <nav class="mb-10">
+    <div class="flex items-center justify-between bg-blue-300 rounded-xl px-3 py-3">
+      <a href="index.html" class="text-2xl font-semibold text-blue-500 hover:text-blue-600 ml-2 sm:text-4xl md:ml-4">Aestic</a>
+
+      <div>
+        <button id="cartLogin" class="bg-blue-400 hover:bg-blue-500 text-white rounded-xl px-4 py-3 ml-6 transitio-all duration-300 ease hover:-translate-y-1 hover:scale-102"><i class="fas fa-shopping-cart ml-2"></i><sup id="cartItem" class="text-[14px] font-semibold text-red-500">0</sup></button>
+        <button id="join-us"
+        class="bg-blue-500 text-white px-4 py-3 ml-6 cursor-pointer rounded-xl transition-all duration-200 ease hover:bg-blue-600 hover:scale-102 hover:-translate-y-1">
+        Join Us<i class="fas fa-user-plus ml-2"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+    <section id="products" class="mt-14">
+
+        <div class="mb-8 rounded-2xl bg-white p-4 shadow-sm sm:p-5">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div class="flex-1">
+                    <label for="searchInput" class="mb-2 block text-sm font-semibold text-gray-700">Search products</label>
+                    <input id="searchInput" type="text" placeholder="Search by name, description, or category"
+                        class="w-full rounded-xl border border-blue-200 px-4 py-3 outline-none focus:border-blue-500">
+                </div>
+
+                <div class="sm:w-56">
+                    <label for="categoryFilter" class="mb-2 block text-sm font-semibold text-gray-700">Category</label>
+                    <select id="categoryFilter" class="w-full rounded-xl border border-blue-200 px-4 py-3 outline-none focus:border-blue-500">
+                        <option value="all">All categories</option>
+                        <option value="T-Shirt">T-Shirts</option>
+                        <option value="Jacket">Jackets</option>
+                        <option value="Pants">Pants</option>
+                        <option value="Shoes">Shoes</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                </div>
+
+                <div class="sm:self-end">
+                    <button id="searchButton" class="w-full rounded-xl bg-blue-500 px-5 py-3 font-semibold text-white transition hover:bg-blue-600 sm:w-auto">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="product-list" class="grid grid-cols-1 pb-10 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"></div>
+        <p id="no-products" class="hidden text-center text-gray-700">No products match your search.</p>
+    </section>
+
+    <script src="product.js"></script>
+    <script>
+      const syncProductAuthUI = () => {
+        const joinUsButton = document.getElementById('join-us');
+        const cartCount = document.getElementById('cartItem');
+        const cartLogin = document.getElementById('cartLogin');
+        const loggedInUser = localStorage.getItem('loggedInUser');
+
+        let savedItems = [];
+
+        try {
+          savedItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+        } catch (error) {
+          savedItems = [];
+        }
+
+        const cartLength = Array.isArray(savedItems) ? savedItems.length : 0;
+
+        if (cartCount) {
+          cartCount.textContent = loggedInUser ? cartLength : 0;
+        }
+
+        if (joinUsButton) {
+          if (loggedInUser) {
+            joinUsButton.innerHTML = `
+              ${loggedInUser}
+              <i class="fas fa-sign-out-alt ml-2 hover:scale-102 hover:text-red-500"></i>
+            `;
+            joinUsButton.onclick = () => {
+              const confirmLogout = confirm('Do you want to logout?');
+
+              if (confirmLogout) {
+                localStorage.removeItem('loggedInUser');
+                alert('You have been logged out successfully.');
+                window.location.href = 'index.html';
+              }
+            };
+          } else {
+            joinUsButton.innerHTML = 'Join Us <i class="fas fa-user-plus ml-2"></i>';
+            joinUsButton.onclick = () => {
+              window.location.href = 'login.html';
+            };
+          }
+        }
+
+        if (cartLogin) {
+          cartLogin.onclick = () => {
+            if (loggedInUser) {
+              window.location.href = 'cart.html';
+              return;
+            }
+
+            alert('Please login to continue!');
+          };
+        }
+      };
+
+      const handleProductAddToCart = (event) => {
+        const button = event.target.closest('.buy-button');
+
+        if (!button) {
+          return;
+        }
+
+        const productCard = button.closest('.product-card');
+
+        if (!productCard) {
+          return;
+        }
+
+        const loggedInUser = localStorage.getItem('loggedInUser');
+
+        if (!loggedInUser) {
+          alert('Please login to continue!');
+          window.location.href = 'login.html';
+          return;
+        }
+
+        const shouldAdd = confirm('Do you want to add this item to cart?');
+
+        if (!shouldAdd) {
+          alert('Item was not added to cart.');
+          return;
+        }
+
+        let savedItems = [];
+
+        try {
+          savedItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+        } catch (error) {
+          savedItems = [];
+        }
+
+        const product = {
+          name: productCard.dataset.name,
+          description: productCard.dataset.description,
+          price: productCard.dataset.price,
+          image: productCard.dataset.image,
+        };
+
+        savedItems.push(product);
+        localStorage.setItem('cartItems', JSON.stringify(savedItems));
+        syncProductAuthUI();
+        alert('Order successful! Items added to cart.');
+        button.innerHTML = 'Added <i class="fas fa-check"></i>';
+        button.disabled = true;
+      };
+
+      document.addEventListener('click', handleProductAddToCart);
+      syncProductAuthUI();
+      window.addEventListener('storage', syncProductAuthUI);
+    </script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-blue-100 w-fit h-screen mx-6 my-4 sm:mx-12">
+     
+  <!-- NAVBAR -->
+  <nav class="mb-32">
+    <div class="flex items-center justify-between bg-blue-300 rounded-xl px-3 py-2">
+      <div class="flex items-center gap-2">
+        <button id="mobileMenuButton" type="button"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500 text-white shadow-sm transition hover:bg-blue-600 md:hidden"
+          aria-label="Open navigation menu" aria-expanded="false">
+          <span class="flex h-full w-full flex-col items-center justify-center gap-1.5">
+            <span class="block h-0.5 w-5 rounded-full bg-current"></span>
+            <span class="block h-0.5 w-5 rounded-full bg-current"></span>
+            <span class="block h-0.5 w-5 rounded-full bg-current"></span>
+          </span>
+        </button>
+
+        <h1 class="text-2xl font-semibold text-blue-500 hover:text-blue-600 sm:text-4xl">
+          Aestic
+        </h1>
+      </div>
+
+      <div class="hidden md:flex gap-6 ml-auto">
+        <a href="#hero"
+          class="hover:text-blue-600 transition-all duration-300 ease hover:underline hover:-translate-y-2">Home</a>
+        <a href="#about"
+          class="hover:text-blue-600 transition-all duration-300 ease hover:underline hover:-translate-y-2">About</a>
+        <a href="product.html"
+          class="hover:text-blue-600 transition-all duration-300 ease hover:underline hover:-translate-y-2">Products</a>
+        <a href="#contact"
+          class="hover:text-blue-600 transition-all duration-300 ease hover:underline hover:-translate-y-2">Contact</a>
+      </div>
+
+      <div class="flex items-center ml-4 gap-4">
+        <button id="cartLogin" class="bg-blue-400 hover:bg-blue-500 text-white rounded-xl px-4 py-3 transitio-all duration-300 ease hover:-translate-y-1 hover:scale-102"><i class="fas fa-shopping-cart ml-2"></i><sup id="cartItem" class="text-[14px] font-semibold text-red-500">0</sup></button>
+        <button id="join-us"
+          class="bg-blue-500 text-white px-4 py-3 cursor-pointer rounded-xl transition-all duration-200 ease hover:bg-blue-600 hover:scale-102 hover:-translate-y-1">
+          Join Us<i class="fas fa-user-plus ml-2"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="mobileMenuOverlay" class="fixed inset-0 z-50 hidden overflow-hidden bg-blue-100/70 backdrop-blur-xl md:hidden">
+    <div class="mx-auto mt-4 flex h-[calc(100vh-2rem)] w-[92vw] max-w-sm flex-col rounded-[28px] border border-white/70 bg-white/90 p-5 shadow-[0_30px_80px_rgba(37,99,235,0.2)]">
+      <div class="flex items-center justify-between border-b border-blue-100 pb-4">
+        <div>
+          <h1 class="text-2xl text-blue-500 font-semibold">Aestic</h1>
+        </div>
+        <button id="closeMobileMenu" type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 hover:bg-blue-200 text-blue-600"
+          aria-label="Close navigation menu">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <nav class="mt-3 flex flex-col gap-2">
+        <a href="#hero" class="rounded-2xl px-4 py-2 text-lg font-semibold text-blue-700 transition hover:bg-blue-100">Home</a>
+        <a href="#about" class="rounded-2xl px-4 py-2 text-lg font-semibold text-blue-700 transition hover:bg-blue-100">About</a>
+        <a href="product.html" class="rounded-2xl px-4 py-2 text-lg font-semibold text-blue-700 transition hover:bg-blue-100">Products</a>
+        <a href="#contact" class="rounded-2xl px-4 py-2 text-lg font-semibold text-blue-700 transition hover:bg-blue-100">Contact</a>
+        <a href="cart.html" class="rounded-2xl px-4 py-2 text-lg font-semibold text-blue-700 transition hover:bg-blue-100">Cart</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="w-full flex flex-col mb-32">
+    <div class="w-full flex flex-col gap-22 lg:flex-row">
+      <div class="w-full flex flex-col lg:w-11/20">
+        <h2 class="text-3xl font-semibold text-blue-500 mb-4">
+          Welcome to Aestic
+        </h2>
+        <p class="text-justify">
+          Discover the latest
+          <span class="text-blue-600">fashion</span> trends at Aestic. Shop
+          now and experience the difference! Aestic represents a fresh take on
+          fashion where <span class="text-blue-600">comfort</span> meets clean
+          design. It’s made for those who value
+          <span class="text-blue-600">simplicity</span> but still want to
+          express themselves through what they wear. Our collection features
+          <span class="text-blue-600"> unique</span> designs that blend style
+          and comfort.
+        </p>
+        <p class="text-justify my-3">
+          Aestic is a <span class="text-blue-600">streetwear</span> brand
+          built for bold self-expression and everyday confidence. We blend
+          clean designs with modern urban vibes. Aestic is more than just a
+          clothing brand — it’s a statement of identity, confidence, and
+          modern style. Built around the idea of blending
+          <span class="text-blue-600">aesthetics</span> with simplicity,
+          Aestic focuses on creating pieces that feel effortlessly
+          <span class="text-blue-600"> stylish</span> while remaining
+          comfortable. Every design reflects a balance between minimalism and
+          <span class="text-blue-600">bold</span> expression, allowing
+          individuals to <span class="text-blue-600">stand out</span> without
+          trying too hard. Whether it’s casual streetwear or refined
+          essentials, Aestic aims to fit seamlessly into your lifestyle while
+          elevating your overall look. This brand embraces
+          <span class="text-blue-600">creativity</span> and attention to
+          detail, making each piece not just clothing, but a reflection of
+          <span class="text-blue-600">personality.</span>
+        </p>
+        <div class="my-6 flex gap-6">
+          <button
+            class="bg-blue-300 text-blue-600 font-semibold px-4 py-2 cursor-pointer rounded-lg transition-all duration-200 ease hover: hover:scale-101 hover:-translate-y-[5px]">
+            Learn More<i class="fas fa-info-circle ml-2"></i>
+          </button>
+          <button id="shopNow"
+            class="bg-blue-500 text-white px-6 py-2 cursor-pointer rounded-lg transition-all duration-200 ease hover:bg-blue-600 hover:scale-101 hover:-translate-y-[5px]">
+            Shop Now<i class="fas fa-shopping-cart ml-2"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-9/20">
+        <img src="images/shop.jpg" alt="shop" class="w-full h-auto rounded-xl" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="w-full mb-32">
+    <div class="mb-8">
+      <h1 class="text-blue-500 font-smibold text-3xl text-center mb-6">
+        Why Choose Us?
+      </h1>
+      <p class="text-justify">
+        Aestic offers a carefully curated range of clothing designed to
+        combine style, comfort, and versatility. From premium-quality t-shirts
+        and hoodies to modern streetwear essentials, each product is crafted
+        using high-quality fabrics that ensure durability and a comfortable
+        fit throughout the day. The brand focuses on minimal yet impactful
+        designs, making the pieces easy to mix and match for different
+        occasions. Key features of Aestic clothing include breathable
+        materials, precise stitching, modern cuts, and a strong emphasis on
+        aesthetic appeal. Whether you're dressing for a casual day out or
+        looking to elevate your everyday wardrobe, Aestic delivers clothing
+        that not only looks good but also feels great, making it a reliable
+        choice for those who appreciate both fashion and function.
+      </p>
+    </div>
+
+    <div class="w-full text-center grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div
+        class="w-full h-auto bg-blue-200 px-5 py-4 rounded-md flex flex-col items-center transition-all duration-200 ease hover:shadow-lg hover:-translate-y-2">
+        <i class="fas fa-truck text-3xl text-blue-500"></i>
+        <h2 class="font-semibold text-blue-500 text-2xl mb-4">
+          Free Delivery
+        </h2>
+        <p class="text-justify hyphens-auto">
+          No extra cost, Just cop it - we ship it fast and free ensuring your
+          shopping experience is convenient and cost-effective.
+        </p>
+      </div>
+
+      <div
+        class="w-full h-auto bg-blue-200 px-5 py-4 rounded-md flex-column items-center transition-all duration-200 ease hover:shadow-lg hover:-translate-y-2">
+        <i class="fas fa-rotate text-3xl text-blue-500"></i>
+        <h2 class="font-semibold text-blue-500 text-2xl mb-4">
+          7-Days Returns
+        </h2>
+        <p class="text-justify hyphens-auto">
+          Not your vibe? Send it back within 7 days, No stress. Hassle-free
+          exchange and returns within 7 days of purchase.
+        </p>
+      </div>
+
+      <div
+        class="w-full h-auto bg-blue-200 px-5 py-4 rounded-md flex-column items-center transition-all duration-200 ease hover:shadow-lg hover:-translate-y-2">
+        <i class="fas fa-headset text-3xl text-blue-500"></i>
+        <h2 class="font-semibold text-blue-500 text-2xl mb-4">
+          24/7 Support
+        </h2>
+        <p class="text-justify hyphens-auto">
+          Drop a message anytime. We've got your back 24/7. Always available
+          for your assistance and inquiries.
+        </p>
+      </div>
+
+      <div
+        class="w-full h-auto bg-blue-200 px-4 py-4 rounded-md flex-column items-center transition-all duration-200 ease hover:shadow-lg hover:-translate-y-2">
+        <i class="fas fa-lock text-3xl text-blue-500"></i>
+        <h2 class="font-semibold text-blue-500 text-2xl mb-4">
+          Secure Payment
+        </h2>
+        <p class="text-justify hyphens-auto">
+          Pay safe, Shop confident, your info stays protected.Safe payment
+          gateways for online and card transactions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PRODUCT SECTION -->
+  <section class="w-full mb-32">
+    <div class="mb-8">
+      <h1 class="text-3xl text-center font-semibold text-blue-500 my-6">Our Products</h1>
+      <p class="text-justify leading-7">
+        Aestic is built for people who want their wardrobe to feel fresh, modern, and effortless. Every piece is designed to balance comfort with bold streetwear energy, so you can wear your style with confidence every day. Explore a few standout essentials below, then jump into the full collection to discover more.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="bg-white rounded-xl overflow-hidden shadow-md transition hover:-translate-y-1 hover:shadow-lg">
+        <img src="images/tshirt1.jpg" alt="Harajuku Tee" class="w-full h-52 object-cover" />
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-blue-600">Harajuku Tee</h2>
+          <p class="text-sm text-gray-600 mt-2">Streetwear-inspired graphic tee with a soft, everyday fit.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-md transition hover:-translate-y-1 hover:shadow-lg">
+        <img src="images/jacket1.jpg" alt="Urban Bomber" class="w-full h-52 object-cover" />
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-blue-600">Urban Bomber</h2>
+          <p class="text-sm text-gray-600 mt-2">A clean bomber jacket made for stylish layering in any season.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-md transition hover:-translate-y-1 hover:shadow-lg">
+        <img src="images/shoes.jpg" alt="Mellow 1 TXR 34" class="w-full h-52 object-cover" />
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-blue-600">Mellow 1 TXR 34</h2>
+          <p class="text-sm text-gray-600 mt-2">Modern sneakers with a comfortable fit and bold streetwear edge.</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl overflow-hidden shadow-md transition hover:-translate-y-1 hover:shadow-lg">
+        <img src="images/pants2.jpg" alt="Tailored Linen Pants" class="w-full h-52 object-cover" />
+        <div class="p-4">
+          <h2 class="text-lg font-semibold text-blue-600">Tailored Linen Pants</h2>
+          <p class="text-sm text-gray-600 mt-2">Lightweight, relaxed pants designed for comfort and effortless style.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center">
+      <a href="product.html"
+        class="inline-flex items-center gap-2 bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold transition hover:bg-blue-600 hover:-translate-y-1">
+        View Full Product Page
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="w-full flex flex-col gap-20 md:flex-row">
+    <div class="w-full mb-12 md:w-1/2">
+      <h1 class="text-center font-semibold text-3xl mb-6 text-blue-600">
+        Contact Us
+      </h1>
+      <p class="text-justify">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
+        repellat dolorum, eum sit doloribus beatae officiis error iusto illum
+        cumque molestias tenetur excepturi? Perspiciatis nostrum dolore, velit
+        iure molestias explicabo nesciunt quae porro repudiandae id illum,
+        debitis ducimus repellat iusto sapiente aspernatur iste illo
+        blanditiis eligendi quaerat praesentium quam atque. Vel omnis esse non
+        inventore ipsa id rerum amet, itaque dignissimos nisi repudiandae
+        ipsum, eveniet odit officia, eum vitae eaque asperiores enim
+        voluptates necessitatibus corporis commodi. Exercitationem autem
+        molestiae sit, veniam voluptates qui labore error asperiores, ut
+        tenetur ab. Voluptates, dicta
+      </p>
+    </div>
+
+    <div class="w-full flex-column md:w-1/2">
+      <h2 class="text-blue-600 text-3xl mb-6 font-semibold text-center">
+        Send us a message!
+      </h2>
+
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name"
+        class="w-full h-9 rounded-md mt-1 mb-6 outline-1 outline-gray-500 focus:outline-gray-800 px-2 py-1" />
+      <p id="nameError" class="text-sm text-red-500 -translate-y-4"></p>
+
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email"
+        class="w-full h-9 rounded-md mt-1 mb-6 outline-1 outline-gray-500 focus:outline-gray-800 px-2 py-1" />
+      <p id="emailError" class="text-sm text-red-500 -translate-y-4"></p>  
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message"
+        class="w-full resize-none rounded-md mt-1 mb-6 outline-1 outline-gray-500 focus:outline-gray-800 px-2 py-1"></textarea>
+      <p id="messageError" class="text-sm text-red-500 -translate-y-4"></p>  
+
+      <button id="send-btn" class="text-white w-full bg-blue-500 rounded-md hover:bg-blue-600 mt-2 mb-8 px-4 py-2">
+        Send Message
+      </button>
+    </div>
+  </section>
+
+  <script src="mobileNav.js"></script>
+  <script src="contact.js"></script>
+  <script src="user.js"></script>
+</body>
+
+</html>
